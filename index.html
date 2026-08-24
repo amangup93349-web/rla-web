@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rankers & Learners Academy — Mira Road</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="mesh"></div>
+
+<header class="banner">
+  <div class="banner-inner">
+    <div class="brand">
+      <img src="assets/logo/logo.png" alt="Rankers & Learners Academy logo" class="brand-mark">
+      <div>
+        <div class="brand-name"><span class="brand-teal">Rankers</span> <span class="brand-black">&amp;</span> <span class="brand-mauve">Learners</span> <span class="brand-black">Academy</span></div>
+        <div class="brand-tag">Learn from Professionals, not Professors</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#offer">Courses</a>
+      <a href="#founders">Founders</a>
+      <a href="#mentors">Mentors</a>
+      <a href="#faculty">Faculties</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#blog">Blog</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow hero-eyebrow">Std IX &amp; X • FYJC/SYJC Commerce • CA/CS/CMA Foundation</div>
+    <h1>Learn from Professionals, not just Professors.</h1>
+    <p>Top-notch teaching, in-depth concept clarity, instant doubt solving, and smaller batches for personal attention — at Rankers &amp; Learners Academy, Mira Road.</p>
+    <div class="ctas">
+      <a href="#admissions" class="btn btn-primary">Apply for Admission</a>
+      <a href="#offer" class="btn btn-ghost">What We Offer</a>
+    </div>
+  </div>
+  <div class="glass hero-card">
+    <div class="card-label">About us</div>
+    <div id="hero-offer-rows"><!-- filled from data/courses.js --></div>
+    <div class="hero-carousel" id="hero-carousel"><!-- filled from data/carousel.js --></div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="section-head">
+    <div class="eyebrow">Programmes</div>
+    <h2>What We Offer</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="offer-grid" id="offer-grid"><!-- filled from data/courses.js --></div>
+  <div class="section-head" style="margin-bottom:18px;">
+    <h2 style="font-size:1.4rem;">Why Us?</h2>
+  </div>
+  <div class="why-grid" id="why-grid"><!-- filled from data/courses.js --></div>
+</section>
+
+<section id="founders">
+  <div class="section-head">
+    <div class="eyebrow">Meet the Team</div>
+    <h2>Founders</h2>
+    <div class="rule"></div>
+  </div>
+  <div id="founders-list"><!-- filled from data/founders.js --></div>
+</section>
+
+<section id="mentors">
+  <div class="section-head">
+    <div class="eyebrow">Guidance & Support</div>
+    <h2>Mentors</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="faculty-grid" id="mentors-list"><!-- filled from data/mentors.js --></div>
+</section>
+
+<section id="faculty">
+  <div class="section-head">
+    <div class="eyebrow">Our Team</div>
+    <h2>Faculties</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="faculty-grid" id="faculty-list"><!-- filled from data/faculty.js --></div>
+</section>
+
+<section id="gallery">
+  <div class="section-head">
+    <div class="eyebrow">Campus &amp; Classroom</div>
+    <h2>Gallery</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"><!-- filled from data/gallery.js --></div>
+</section>
+
+<div id="lightbox-overlay" class="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()">&#8249;</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+  <video id="lightbox-video" class="lightbox-img" controls autoplay style="display:none;"></video>
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNext()">&#8250;</button>
+  <div id="lightbox-caption" class="lightbox-caption"></div>
+  <div id="lightbox-counter" class="lightbox-counter"></div>
+</div>
+
+<div id="blog-modal-overlay" class="blog-modal-overlay" onclick="if(event.target===this) closeBlogModal()">
+  <div class="blog-modal-box">
+    <button class="lightbox-close" onclick="closeBlogModal()" style="position:absolute;top:14px;right:18px;">&times;</button>
+    <div class="blog-date" id="blog-modal-tag"></div>
+    <h3 id="blog-modal-title"></h3>
+    <p id="blog-modal-content"></p>
+  </div>
+</div>
+
+<section id="blog">
+  <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+    <div>
+      <div class="eyebrow">From the Desk</div>
+      <h2>Blogs &amp; Updates</h2>
+      <div class="rule"></div>
+    </div>
+    <a href="blog.html" class="btn btn-ghost">View All</a>
+  </div>
+  <div class="blog-grid" id="blog-list"><!-- filled from data/blog.js --></div>
+</section>
+
+<section id="admissions">
+  <div class="section-head">
+    <div class="eyebrow">Join Us</div>
+    <h2>Enquiry Form</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="glass form-wrap">
+    <form id="admissionForm">
+      <div class="form-row">
+        <div><label for="fname">Full Name</label><input id="fname" name="fname" type="text" required></div>
+        <div><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" required pattern="[0-9]{10}" maxlength="10" title="Enter a 10-digit phone number" inputmode="numeric"></div>
+      </div>
+      <div class="form-row">
+        <div><label for="email">Email</label><input id="email" name="email" type="email"></div>
+        <div><label for="course">Standard</label>
+          <select id="course" name="course" required>
+            <option value="" disabled selected>Select Standard</option>
+            <option>Std. IX</option>
+            <option>Std. X</option>
+            <option>Std. IX + X</option>
+            <option>FYJC Commerce</option>
+            <option>SYJC Commerce</option>
+            <option>FYJC + SYJC Commerce</option>
+            <option>CA Foundation</option>
+            <option>CS Foundation</option>
+            <option>CMA Foundation</option>
+            <option>FYJC + SYJC Commerce + CA</option>
+            <option>FYJC + SYJC Commerce + CS</option>
+            <option>FYJC + SYJC Commerce + CMA</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row full">
+  <div>
+    <label>Branch</label>
+    <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:12px;padding:2px 0;">
+      <label style="display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;text-transform:none;letter-spacing:normal;color:var(--ink);cursor:pointer;">
+        <input type="radio" name="branch" value="Salasar Woods" required style="width:17px;height:17px;accent-color:var(--teal);margin:0;"> Salasar Woods
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;text-transform:none;letter-spacing:normal;color:var(--ink);cursor:pointer;">
+        <input type="radio" name="branch" value="Geeta Arcade" required style="width:17px;height:17px;accent-color:var(--teal);margin:0;"> Geeta Arcade
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;text-transform:none;letter-spacing:normal;color:var(--ink);cursor:pointer;">
+        <input type="radio" name="branch" value="Miragaon" required style="width:17px;height:17px;accent-color:var(--teal);margin:0;"> Miragaon
+      </label>
+    </div>
+  </div>
+</div>
+      <div class="form-row full">
+        <div><label for="message">Message (optional)</label><textarea id="message" name="message" placeholder="Anything you'd like us to know"></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+      <p class="form-note" id="formNote"></p>
+    </form>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <div class="eyebrow">Where To Find Us</div>
+    <h2>Our Branches</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="branch-tree" id="branch-list"><!-- filled from data/branches.js --></div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4 style="display:flex;align-items:center;gap:4px;">
+  <img src="assets/logo/logo.png" alt="Logo" style="width:80px;height:80px;object-fit:contain;">
+  <span style="display:flex;flex-direction:column;align-items:center;line-height:1;">
+    <span style="white-space:nowrap;"><span class="brand-teal">Rankers</span> <span class="brand-black">&amp;</span> <span class="brand-mauve">Learners</span></span>
+    <span class="brand-black" style="margin-top:2px;">Academy</span>
+  </span>
+</h4>
+      <p>Learn from Professionals, not just Professors.</p> 
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p id="footer-phones"><!-- filled from data/branches.js --></p>
+      <p id="footer-email"><!-- filled from data/branches.js --></p>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <p id="footer-instagram"><!-- filled from data/branches.js --></p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Rankers &amp; Learners Academy. All rights reserved.</div>
+</footer>
+
+<!-- Data files: edit these to change content -->
+<script src="data/courses.js"></script>
+<script src="data/carousel.js"></script>
+<script src="data/founders.js"></script>
+<script src="data/mentors.js"></script>
+<script src="data/faculty.js"></script>
+<script src="data/gallery.js"></script>
+<script src="data/blog.js"></script>
+<script src="data/branches.js"></script>
+
+<!-- Renders the data above into the page -->
+<script src="js/render.js"></script>
+<!-- Admission form behaviour -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
