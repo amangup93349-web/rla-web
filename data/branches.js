@@ -18,11 +18,6 @@ const BRANCHES_DATA = [
   },
   {
     name: "First Branch",
-    address: "Shop No. 45, Geeta Arcade, Sheetal Nagar, Station Road, Opp. Holy Cross Convent School, Mira Road (E), Mumbai - 401107",
-    mapLink: "https://www.google.com/maps/search/?api=1&query=Geeta+Arcade+Sheetal+Nagar+Station+Road+Mira+Road+East+Mumbai+401107"
-  },
-  {
-    name: "Second Branch",
     address: "Flat No. 102 & 103, Yashwant Vihar Building, Near Hanuman Mandir, Miragaon, Mira Road (E), Mumbai - 401107",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Yashwant+Vihar+Building+Miragaon+Mira+Road+East+Mumbai+401107"
   }
