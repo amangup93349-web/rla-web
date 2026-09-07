@@ -60,12 +60,12 @@
     -webkit-backdrop-filter:blur(18px) saturate(160%);
     border-bottom:1px solid rgba(255,255,255,0.5);
   }
-  .banner-inner{max-width:1180px;margin:0 auto;padding:4px 10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:12px;}
-  .brand{display:flex;align-items:center;gap:10px;}
+  .banner-inner{max-width:1180px;margin:0 auto;padding:4px 10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:6px;}
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:1;min-width:0;}
   .brand-mark{width:100px;height:100px;object-fit:contain;display:block;}
   .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.22rem;color:var(--teal);}
-  .brand-tag{font-size:0.68rem;color:#1a1a1a;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;}
-  nav{display:flex;gap:4px;font-size:0.82rem;flex-wrap:nowrap;margin-left:0;}
+  .brand-tag{font-size:0.68rem;color:#1a1a1a;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;white-space:nowrap;}
+  nav{display:flex;gap:2px;font-size:0.82rem;flex-wrap:nowrap;margin-left:0;}
   nav a{padding:7px 12px;border-radius:100px;font-weight:500;color:#33413f;transition:background .25s ease,color .25s ease;background:rgba(255,255,255,0.28);}
   nav a:hover{background:rgba(255,255,255,0.7);color:var(--teal);}
 
