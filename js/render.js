@@ -332,3 +332,32 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(sec);
   });
 });
+
+// ============================================
+// MOBILE MENU — the hamburger (☰) button in the
+// header. Only visible on small screens (see the
+// mobile media query in css/style.css). Nothing
+// to edit here.
+// ============================================
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("navToggle");
+  const nav = document.getElementById("mainNav");
+  if (!toggleBtn || !nav) return;
+
+  function closeMenu() {
+    nav.classList.remove("nav-open");
+    toggleBtn.classList.remove("open");
+    toggleBtn.setAttribute("aria-expanded", "false");
+  }
+
+  toggleBtn.addEventListener("click", function () {
+    const isOpen = nav.classList.toggle("nav-open");
+    toggleBtn.classList.toggle("open", isOpen);
+    toggleBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // Close the menu once a link is tapped
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+});
