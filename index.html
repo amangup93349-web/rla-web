@@ -7,9 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,7 +22,7 @@
         <div class="brand-tag">Learn from Professionals,<br class="mobile-break"> not just Professors</div>
       </div>
     </div>
-    <nav id="mainNav">
+    <nav id="mainNav" aria-label="Primary navigation">
       <a href="#offer">Courses</a>
       <a href="#founders">Founders</a>
       <a href="#mentors">Mentors</a>
@@ -35,7 +32,7 @@
       <a href="#admissions">Admissions</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="hamburger-btn" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <button type="button" class="hamburger-btn" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -47,12 +44,12 @@
     <h1>Learn from Professionals, not just Professors.</h1>
     <p>Top-notch teaching, in-depth concept clarity, instant doubt solving, and smaller batches for personal attention — at Rankers &amp; Learners Academy, Mira Road.</p>
     <div class="ctas">
-      <a href="#admissions" class="btn btn-primary">Apply for Admission</a>
+      <a href="#admissions" class="btn btn-primary">Enquire Now</a>
       <a href="#offer" class="btn btn-ghost">What We Offer</a>
     </div>
   </div>
   <div class="glass hero-card">
-    <div class="card-label">About us</div>
+    <div class="card-label">What We Offer</div>
     <div id="hero-offer-rows"><!-- filled from data/courses.js --></div>
     <div class="hero-carousel" id="hero-carousel"><!-- filled from data/carousel.js --></div>
   </div>
@@ -108,18 +105,18 @@
 </section>
 
 <div id="lightbox-overlay" class="lightbox-overlay" onclick="if(event.target===this) closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()">&#8249;</button>
+  <button type="button" class="lightbox-close" aria-label="Close gallery" onclick="closeLightbox()">&times;</button>
+  <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous image" onclick="lightboxPrev()">&#8249;</button>
   <img id="lightbox-img" class="lightbox-img" src="" alt="">
   <video id="lightbox-video" class="lightbox-img" controls autoplay style="display:none;"></video>
-  <button class="lightbox-nav lightbox-next" onclick="lightboxNext()">&#8250;</button>
+  <button type="button" class="lightbox-nav lightbox-next" aria-label="Next image" onclick="lightboxNext()">&#8250;</button>
   <div id="lightbox-caption" class="lightbox-caption"></div>
   <div id="lightbox-counter" class="lightbox-counter"></div>
 </div>
 
 <div id="blog-modal-overlay" class="blog-modal-overlay" onclick="if(event.target===this) closeBlogModal()">
   <div class="blog-modal-box">
-    <button class="lightbox-close" onclick="closeBlogModal()" style="position:absolute;top:14px;right:18px;">&times;</button>
+    <button type="button" class="lightbox-close blog-close" aria-label="Close blog" onclick="closeBlogModal()">&times;</button>
     <div class="blog-date" id="blog-modal-tag"></div>
     <h3 id="blog-modal-title"></h3>
     <p id="blog-modal-content"></p>
@@ -127,7 +124,7 @@
 </div>
 
 <section id="blog">
-  <div class="section-head" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+  <div class="section-head blog-section-head">
     <div>
       <div class="eyebrow">From the Desk</div>
       <h2>Blogs &amp; Updates</h2>
@@ -173,12 +170,12 @@
       <div class="form-row full">
   <div>
     <label>Branch</label>
-    <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:12px;padding:2px 0;">
-      <label style="display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;text-transform:none;letter-spacing:normal;color:var(--ink);cursor:pointer;">
-        <input type="radio" name="branch" value="Salasar Woods" required style="width:17px;height:17px;accent-color:var(--teal);margin:0;"> Salasar Woods
+    <div class="branch-options">
+      <label class="branch-option">
+        <input type="radio" name="branch" value="Salasar Woods" required> Salasar Woods
       </label>
-      <label style="display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:0.92rem;font-weight:500;text-transform:none;letter-spacing:normal;color:var(--ink);cursor:pointer;">
-        <input type="radio" name="branch" value="Miragaon" required style="width:17px;height:17px;accent-color:var(--teal);margin:0;"> Miragaon
+      <label class="branch-option">
+        <input type="radio" name="branch" value="Miragaon" required> Miragaon
       </label>
     </div>
   </div>
@@ -205,7 +202,7 @@
   <div class="footer-inner">
     <div>
       <h4 style="display:flex;align-items:center;gap:4px;">
-  <img src="assets/logo/logo.png" alt="Logo" style="width:80px;height:80px;object-fit:contain;">
+  <img src="assets/logo/logo.png" alt="Rankers & Learners Academy logo" class="footer-logo">
   <span style="display:flex;flex-direction:column;align-items:center;line-height:1;">
     <span style="white-space:nowrap;"><span class="brand-teal">Rankers</span> <span class="brand-black">&amp;</span> <span class="brand-mauve">Learners</span></span>
     <span class="brand-black" style="margin-top:2px;">Academy</span>
