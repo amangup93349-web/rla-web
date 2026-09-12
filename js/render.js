@@ -52,7 +52,7 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
         <div class="carousel-slide${i === 0 ? " active" : ""}" onclick="openCarouselLightbox(${i})">
           ${item.type === "video"
             ? `<video src="${item.src}" autoplay muted playsinline></video>`
-            : `<img src="${item.src}" alt="Academy photo ${i + 1}">`}
+            : `<img src="${item.src}" alt="Academy photo ${i + 1}" loading="lazy" decoding="async">`}
           ${item.caption ? `<div class="carousel-caption">${escapeHTML(item.caption)}</div>` : ""}
         </div>`).join("");
 
@@ -89,7 +89,7 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
         scheduleNext();
       }
     } else {
-      heroCarousel.innerHTML = `<div class="hero-logo-wrap"><img src="assets/logo/logo.png" alt="Rankers & Learners Academy"></div>`;
+      heroCarousel.innerHTML = `<div class="hero-logo-wrap"><img src="assets/logo/logo.png" alt="Rankers & Learners Academy" decoding="async"></div>`;
     }
   }
 
@@ -98,7 +98,7 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
   if (foundersList && typeof FOUNDERS_DATA !== "undefined") {
     foundersList.innerHTML = FOUNDERS_DATA.map(f => `
       <div class="glass founder-card">
-        <img src="${f.photo}" alt="${escapeHTML(f.name)}" class="founder-photo">
+        <img src="${f.photo}" alt="${escapeHTML(f.name)}" class="founder-photo" loading="lazy" decoding="async">
         <div>
           <h3>${escapeHTML(f.name)}</h3>
           <ul>${f.points.map(p => `<li>${escapeHTML(p)}</li>`).join("")}</ul>
@@ -113,7 +113,7 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
   if (mentorsList && typeof MENTORS_DATA !== "undefined") {
     mentorsList.innerHTML = MENTORS_DATA.map(m => `
       <div class="glass faculty-card mentor-card">
-        ${m.photo ? `<img src="${m.photo}" alt="${escapeHTML(m.name)}" class="mentor-photo">` : ""}
+        ${m.photo ? `<img src="${m.photo}" alt="${escapeHTML(m.name)}" class="mentor-photo" loading="lazy" decoding="async">` : ""}
         <div class="fname">${escapeHTML(m.name)}</div>
         ${m.lines.map(l => `<p>${escapeHTML(l)}</p>`).join("")}
       </div>`).join("");
@@ -136,7 +136,7 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
       const imgs = g.images && g.images.length ? g.images : (g.image ? [g.image] : []);
       if (imgs.length) {
         return `<div class="glass gallery-item" style="cursor:pointer;position:relative;overflow:hidden;padding:0;" onclick="openLightbox(${idx})">
-          ${imgs.map((src, i) => `<img src="${src}" alt="${escapeHTML(g.caption)}" class="gallery-slide${i === 0 ? " active" : ""}">`).join("")}
+          ${imgs.map((src, i) => `<img src="${src}" alt="${escapeHTML(g.caption)}" class="gallery-slide${i === 0 ? " active" : ""}" loading="lazy" decoding="async">`).join("")}
           <div class="gallery-tag">${escapeHTML(g.caption)}${imgs.length > 1 ? ` (${imgs.length})` : ""}</div>
         </div>`;
       }
@@ -168,7 +168,7 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
         <div class="blog-date">${escapeHTML(b.tag)}</div>
         <h3>${escapeHTML(b.title)}</h3>
         <p>${escapeHTML(b.excerpt)}</p>
-        <div class="read" onclick="openBlogModal(${i})">Read more →</div>
+        <button type="button" class="read" onclick="openBlogModal(${i})">Read more →</button>
       </div>`).join("");
   }
 
@@ -314,15 +314,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     entries.forEach(entry => {
       const el = entry.target;
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !el.classList.contains("in-view")) {
         el.classList.remove("reveal-from-top", "reveal-from-bottom");
         el.classList.add(scrollingDown ? "reveal-from-bottom" : "reveal-from-top");
-        // force reflow so the browser registers the starting position
-        // before we animate to in-view
         void el.offsetWidth;
         requestAnimationFrame(() => el.classList.add("in-view"));
-      } else {
-        el.classList.remove("in-view");
       }
     });
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
@@ -348,12 +344,15 @@ document.addEventListener("DOMContentLoaded", function () {
     nav.classList.remove("nav-open");
     toggleBtn.classList.remove("open");
     toggleBtn.setAttribute("aria-expanded", "false");
+    toggleBtn.setAttribute("aria-label", "Open menu");
   }
 
+  toggleBtn.setAttribute("aria-controls", "mainNav");
   toggleBtn.addEventListener("click", function () {
     const isOpen = nav.classList.toggle("nav-open");
     toggleBtn.classList.toggle("open", isOpen);
     toggleBtn.setAttribute("aria-expanded", String(isOpen));
+    toggleBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   });
 
   // Close the menu once a link is tapped
