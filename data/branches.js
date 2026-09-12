@@ -13,12 +13,12 @@
 const BRANCHES_DATA = [
   {
     name: "Main Branch",
-    address: "Shop No. 6, Salasar Woods, Near Ronak Fine Dine Restaurant, Behind Divine Mercy Church, Kanakia Road, Mira Road (E), Mumbai - 401107",
+    address: "Shop No. 6, Salasar Woods,\nNear Ronak Fine Dine Restaurant,\nBehind Divine Mercy Church, Kanakia Road,\nMira Road (E), Mumbai - 401107",
     mapLink: "https://maps.app.goo.gl/uopbNKvThsMx3PP69"
   },
   {
     name: "First Branch",
-    address: "Flat No. 102 & 103, Yashwant Vihar Building, Near Hanuman Mandir, Miragaon, Mira Road (E), Mumbai - 401107",
+    address: "Flat No. 102 & 103, Yashwant Vihar Building,\nNear Hanuman Mandir, Miragaon,\nMira Road (E), Mumbai - 401107",
     mapLink: "https://www.google.com/maps/search/?api=1&query=Yashwant+Vihar+Building+Miragaon+Mira+Road+East+Mumbai+401107"
   }
 ];
