@@ -60,14 +60,5 @@ const MENTORS_DATA = [
       "Future CA",
       "Owner of Rolls Royce"
     ]
-  },{
-    name: "Aman Gupta",
-  //  photo: "assets/Mentors/Aman.jpeg",
-    lines: [
-      "Rolls Royce",
-      "Future CA",
-      "Owner of Rolls Royce"
-    ]
-  },
-
+  }
 ];
