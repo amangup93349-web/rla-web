@@ -409,7 +409,7 @@ section{position:relative}
 .section-head-sub{margin-top:42px;margin-bottom:20px}
 .section-head-sub .eyebrow{margin-bottom:4px}
 .blog-section-head{position:relative;padding-right:150px;max-width:none}
-.blog-section-head>.btn{position:absolute;top:0;right:0;}
+.blog-section-head>.btn{position:absolute;top:50%;right:0;transform:translateY(-50%);}
 
 /* Header: premium but restrained */
 .banner{box-shadow:0 8px 30px rgba(20,50,52,.06)}
