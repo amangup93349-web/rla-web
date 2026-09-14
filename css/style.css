@@ -408,8 +408,9 @@ section{position:relative}
 .section-head .rule{width:54px;height:3px;border-radius:99px;background:var(--gold);opacity:.85}
 .section-head-sub{margin-top:42px;margin-bottom:20px}
 .section-head-sub .eyebrow{margin-bottom:4px}
-.blog-section-head{position:relative;padding-right:150px;max-width:none}
-.blog-section-head>.btn{position:absolute;top:50%;right:0;transform:translateY(-50%);}
+.blog-section-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:nowrap;gap:16px;max-width:none}
+.blog-section-head>div:first-child{min-width:0;}
+.blog-section-head>.btn{flex-shrink:0;}
 
 /* Header: premium but restrained */
 .banner{box-shadow:0 8px 30px rgba(20,50,52,.06)}
@@ -496,7 +497,7 @@ footer{border-top:1px solid rgba(31,110,113,.08)}
 @media (max-width:820px){
   section{scroll-margin-top:82px}
   .section-head-sub{margin-top:30px}
-  .blog-section-head{align-items:flex-start;padding-right:110px;}
+  .blog-section-head{align-items:flex-end;}
   .blog-section-head>.btn{padding:9px 16px;font-size:0.82rem;}
   .hero>div:first-child{max-width:none}
   .hero h1{letter-spacing:-.025em}
@@ -516,7 +517,6 @@ footer{border-top:1px solid rgba(31,110,113,.08)}
 @media (max-width:520px){
   .section-head h2{font-size:1.7rem}
   .section-head-sub{margin-top:26px}
-  .blog-section-head{padding-right:96px;}
   .blog-section-head>.btn{padding:8px 12px;font-size:0.76rem;}
   .ctas .btn{min-height:48px}
   .why-item{gap:11px}
