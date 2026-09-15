@@ -21,11 +21,11 @@ const COURSES_DATA = {
   // The "Why Us?" bullet list — add/remove lines freely
   whyUs: [
     "Professional & Experienced Faculties",
+    "Smaller Batches for Personal Attention",
     "In-depth Concept Clarity",
     "Instant Doubt Solving",
     "Last Day Revision Notes",
     "Mandatory Weekly Tests",
-    "Smaller Batches for Personal Attention",
     "Career Guidance Sessions",
     "Extra Curricular Activities"
   ]
