@@ -133,6 +133,10 @@
   .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:38px;}
   .offer-tile{padding:24px 20px;text-align:center;font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--mauve);}
 
+  .blog-section-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:16px;max-width:none;}
+  .blog-section-head>div:first-child{min-width:0;}
+  .blog-section-head>.btn{flex-shrink:0;}
+
   /* ===== Founders ===== */
   .founder-card{padding:28px;display:grid;grid-template-columns:130px 1fr;gap:24px;margin-bottom:24px;align-items:start;}
   .founder-photo{width:130px;height:auto;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,0.12);}
@@ -208,7 +212,11 @@
   .blog-date{font-size:0.7rem;color:var(--mauve);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;}
   .blog-card h3{color:var(--teal);margin-top:10px;font-size:1.12rem;font-weight:600;}
   .blog-card p{font-size:0.87rem;color:#4a534f;margin-top:10px;}
-  .blog-card .read{font-size:0.82rem;color:var(--mauve);margin-top:14px;display:inline-block;font-weight:700;}
+  .blog-card .read{
+    font-size:0.82rem;color:var(--mauve);margin-top:14px;display:inline-block;font-weight:700;
+    padding:0;border:0;background:none;cursor:pointer;text-align:left;font-family:inherit;
+  }
+  .blog-card .read:hover{text-decoration:underline;text-underline-offset:3px;}
 
   /* ===== Admissions ===== */
   .form-wrap{padding:38px;max-width:720px;}
@@ -238,6 +246,7 @@
   .branch-card p{font-size:0.87rem;color:#3d4644;}
 
   footer{padding:50px 24px 26px;}
+  .footer-logo{width:80px;height:80px;object-fit:contain;flex-shrink:0;}
   .footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
   footer h4{font-family:'Fraunces',serif;color:var(--teal);font-size:0.95rem;margin-bottom:2px;font-weight:600;}
   footer p, footer a{font-size:0.87rem;color:#3d4644;}
