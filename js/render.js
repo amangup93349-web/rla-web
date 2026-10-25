@@ -10,6 +10,7 @@
 // your own icon image instead, replace any ICONS.xxx below with
 // an <img src="assets/icons/yourfile.png"> tag.
 const ICONS = {
+  whatsapp: `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:-3px;"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 01-1.44-5.01c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 012.76 6.67c0 5.2-4.24 9.42-9.44 9.42zm8.02-17.45A11.27 11.27 0 0012.05.75C5.8.75.7 5.84.7 12.1c0 2 .52 3.95 1.52 5.67L.6 23.25l5.6-1.47a11.3 11.3 0 005.84 1.6h.01c6.25 0 11.34-5.1 11.35-11.35 0-3.03-1.18-5.88-3.33-8z"/></svg>`,
   phone: `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>`,
   email: `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`,
   instagram: `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.78.22 2.41.46.65.25 1.2.59 1.75 1.14.5.5.9 1.1 1.15 1.75.24.63.41 1.35.46 2.41.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.78-.46 2.41-.25.65-.59 1.2-1.14 1.75-.5.5-1.1.9-1.75 1.15-.63.24-1.35.41-2.41.46-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.78-.22-2.41-.46-.65-.25-1.2-.59-1.75-1.14-.5-.5-.9-1.1-1.15-1.75-.24-.63-.41-1.35-.46-2.41C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.78.46-2.41.25-.65.59-1.2 1.14-1.75.5-.5 1.1-.9 1.75-1.15.63-.24 1.35-.41 2.41-.46C8.94 2.01 9.28 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>`,
@@ -177,10 +178,36 @@ if (heroOffer && typeof COURSES_DATA !== "undefined") {
   if (branchList && typeof BRANCHES_DATA !== "undefined") {
     branchList.innerHTML = BRANCHES_DATA.map(b => `
       <div class="glass branch-card">
-        <h4>${b.name === "Main Branch" ? ICONS.mainBranch : ICONS.pin} ${escapeHTML(b.name)}</h4>
+        <h4>${(b.main || b.name === "Main Branch") ? ICONS.mainBranch : ICONS.pin} ${escapeHTML(b.name)}</h4>
         <p>${escapeHTML(b.address)}</p>
         ${b.mapLink ? `<a href="${b.mapLink}" target="_blank" rel="noopener" class="map-btn">${ICONS.pin} View on Map</a>` : ""}
       </div>`).join("");
+  }
+
+  // ---- Floating WhatsApp button ----
+  // Number and the ready-typed message come from CONTACT_DATA in
+  // data/branches.js — change them there, not here.
+  if (typeof CONTACT_DATA !== "undefined" && CONTACT_DATA.whatsapp) {
+    const waLink = "https://wa.me/" + String(CONTACT_DATA.whatsapp).replace(/\D/g, "") +
+      (CONTACT_DATA.whatsappMessage ? "?text=" + encodeURIComponent(CONTACT_DATA.whatsappMessage) : "");
+
+    // Floating button, bottom-right, on every page that loads this file
+    if (!document.querySelector(".wa-float")) {
+      const fab = document.createElement("a");
+      fab.className = "wa-float";
+      fab.href = waLink;
+      fab.target = "_blank";
+      fab.rel = "noopener";
+      fab.setAttribute("aria-label", "Chat with us on WhatsApp");
+      fab.innerHTML = '<span class="wa-float-icon">' + ICONS.whatsapp + '</span><span class="wa-float-text">Chat on WhatsApp</span>';
+      document.body.appendChild(fab);
+    }
+  }
+
+  // ---- "Call Now" button in the hero ----
+  if (typeof CONTACT_DATA !== "undefined" && CONTACT_DATA.callNumber) {
+    const telLink = "tel:+91" + String(CONTACT_DATA.callNumber).replace(/\D/g, "").slice(-10);
+    document.querySelectorAll("[data-call-link]").forEach(a => { a.href = telLink; });
   }
 
   // ---- Contact / footer ----
